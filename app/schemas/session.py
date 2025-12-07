@@ -23,6 +23,9 @@ class FallbackRequest(BaseModel):
     user_id: int
     pin: str
 
+class PinAttendanceRequest(BaseModel):
+    pin: str
+
 class AttendanceResult(BaseModel):
     status: str
     user_id: Optional[int] = None

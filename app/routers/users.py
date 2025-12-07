@@ -107,3 +107,7 @@ async def update_me(
 ):
     user = await user_service.update_user(db, current_user, nama=payload.nama)
     return UserOut.from_orm(user)
+
+@router.post("/test-endpoint", status_code=status.HTTP_200_OK)
+async def test_endpoint():
+    return {"message": "Test endpoint in users router works!"}
