@@ -11,6 +11,12 @@ class AttendanceRecord(Base):
     user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
     status = Column(String(50), nullable=False)  # e.g., hadir, tidak, terlambat
     timestamp = Column(DateTime(timezone=True), server_default=func.now())
+    check_in_time = Column(DateTime(timezone=True), nullable=True)  # explicit check-in time
+    method = Column(String, default="face")  # face / pin / qr / fallback
+
+    full_name = Column(String, nullable=True)
+    student_number = Column(String, nullable=True)
+    actor_role = Column(String, nullable=True)  # "student" or "teacher"
 
     # relationships
     session = relationship("AttendanceSession", back_populates="records")

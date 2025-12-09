@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, ForeignKey, Date, Time, DateTime
+from sqlalchemy import Column, Integer, ForeignKey, Date, Time, DateTime, String
 from sqlalchemy.sql import func
 from sqlalchemy.orm import relationship
 from app.database.connection import Base
@@ -11,6 +11,7 @@ class AttendanceSession(Base):
     tanggal = Column(Date, nullable=False)
     jam_mulai = Column(Time, nullable=True)
     jam_selesai = Column(Time, nullable=True)
+    status = Column(String, nullable=False, default="draft")
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
     # relationships

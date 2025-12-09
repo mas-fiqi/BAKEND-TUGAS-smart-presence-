@@ -20,6 +20,7 @@ class UserOut(BaseModel):
     email: EmailStr
     role: str
     is_active: bool
+    profile_image_url: Optional[str] = None
     created_at: Optional[datetime] = None
 
     # untuk mendukung .from_orm() di Pydantic v2
